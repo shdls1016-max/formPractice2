@@ -15,20 +15,20 @@
                 <h4>1. 부동산의 표시</h4>
             </div>
             <label for="address" class="subtitle">소재지</label>
-            <input type="text" id="address" name="address" required>
+            <input type="text" id="address" name="address" required autofocus>
     
             <label for="land1" class="subtitle">토지</label>
             <label for="land1" class="innertitle">지목</label>
             <input type="text" id="land1" name="land1">
             <label for="land2-1" class="innertitle">대지권/비율</label>
             <div class="land2-1Set">
-                <input type="number" id="land2-1" name="land2-1">
+                <input type="number" id="land2-1" name="land2-1" min="1">
                 <span>/</span>
-                <input type="number" id="land2-2" name="land2-2">
+                <input type="number" id="land2-2" name="land2-2" min="1">
             </div>
             <label for="land3" class="innertitle">토지 면적</label>
             <div class="pr20">
-                <input type="number" id="land3" name="land3">
+                <input type="number" id="land3" name="land3" min="1">
                 <span>m<sup>2</sup></span>
             </div>
     
@@ -37,7 +37,7 @@
             <input type="text" id="building1" name="building1">
             <label for="building2" class="innertitle">건물 면적</label>
             <div class="pr20">
-                <input type="number" id="building2" name="building2">
+                <input type="number" id="building2" name="building2" min="1">
                 <span>m<sup>2</sup></span>
             </div>
     
@@ -50,77 +50,88 @@
             <label for="transactionPrice" class="subtitle">매매대금</label>
             <div class="transactionPriceSet pr20">
                 <span>금</span>
-                <input type="text" id="transactionPrice" name="transactionPrice" class="child1input30" required>
+                <input type="text" id="transactionPrice" name="transactionPrice" class="paywidth1-2 tar" required>
                 <span>원정 ( \</span>
-                <input type="number" id="transactionPriceNum" name="transactionPriceNum" class="inputGlow">
+                <input type="number" id="transactionPriceNum" name="transactionPriceNum" class="inputGlow" min="1">
                 <span>)</span>
             </div>
     
             <label for="deposit" class="subtitle">계약금</label>
             <div class="depositSet pr20">
-                <span>금</span>
-                <input type="text" id="deposit" name="deposit" class="child1input30">
-                <span>원정은 계약시에 지급하고 영수함.</span>
-    
-                <label for="sign" class="signlabel">영수자(</label>
-                <input type="text" id="sign" name="sign" required>
-                <span>인)</span>
+                <div class="paywidth1-2">
+                    <span>금</span>
+                    <input type="text" id="deposit" name="deposit" class="tar">
+                    <span>원정은 계약시에 지급하고 영수함.</span>
+        
+                </div>
+                <div>
+                    <label for="sign" class="signlabel">영수자(</label>
+                    <input type="text" id="sign" name="sign" required class="tar" class="inputGlow">
+                    <span>인)</span>
+                </div>
+            
             </div>
     
             <label for="loan" class="subtitle">융자금</label>
             <div class="loanSet">
                 <span>금</span>
-                <input type="text" id="loan" name="loan">
+                <input type="text" id="loan" name="loan" class="tar">
                 <span>원정(</span>
-                <input type="text" id="bank" name="bank">
+                <input type="text" id="bank" name="bank" class="tar">
                 <span>은행)을 승계키로 한다.</span>
             </div>
             <label for="rentalDeposit"  class="subtitle bt">임대보증금</label>
             <div class="rentalDepositSet">
                 <span>총</span>
-                <input type="text" id="rentalDeposit" name="rentalDeposit">
+                <input type="text" id="rentalDeposit" name="rentalDeposit" class="tar">
                 <span>원정을 승계키로 한다.</span>
             </div>
     
             <label for="middlePayment1" class="gridRow2 subtitle">중도금</label>
             <div class="middlePayment1Set pr20">
-                <span>금</span>
-                <input type="text" id="middlePayment1" name="middlePayment1" class="child1input40">
-                <span>원정</span>
+                <div class="paywidth4-6">
+                    <span>금</span>
+                    <input type="text" id="middlePayment1" name="middlePayment1" class="tar">
+                    <span>원정</span>
+                </div>
                 <div class="date">
-                    <input type="number" name="year">
+                    <input type="number" name="year" value="">
                     <span>년</span>
-                    <input type="number" name="month">
+                    <input type="number" name="month" min="1" max="12">
                     <span>월</span>
-                    <input type="number" name="day">
+                    <input type="number" name="day" min="1" max="31">
                     <span>일에 지급하며</span>
                 </div>
             </div>
             <div  class="middlePayment2Set pr20">
-                <span>금</span>
-                <input type="text" id="middlePayment2" name="middlePayment2" class="child1input40">
-                <span>원정</span>
+                <div class="paywidth4-6">
+                    <span>금</span>
+                    <input type="text" id="middlePayment2" name="middlePayment2" class="tar">
+                    <span>원정</span>
+                </div>
                 <div class="date">
-                    <input type="number" name="year">
+                    <input type="number" name="year"  value="">
                     <span>년</span>
-                    <input type="number" name="month">
+                    <input type="number" name="month" min="1" max="12">
                     <span>월</span>
-                    <input type="number" name="day">
+                    <input type="number" name="day" min="1" max="31">
                     <span>일에 지급한다</span>
                 </div>
             </div>
     
             <label for="balance" class="subtitle">잔금</label>
             <div class="balanceSet pr20">
-                <span>금</span>
-                <input type="text" id="balance" name="balance" class="child1input40">
-                <span>원정</span>
+                <div class="paywidth4-6">
+                    <span>금</span>
+                    <input type="text" id="balance" name="balance" class="tar">
+                    <span>원정</span>
+                </div>
                 <div class="date">
-                    <input type="number" name="year"  value="2026">
+                    <input type="number" name="year"  value="">
                     <span>년</span>
-                    <input type="number" name="month">
+                    <input type="number" name="month" min="1" max="12">
                     <span>월</span>
-                    <input type="number" name="day">
+                    <input type="number" name="day" min="1" max="31">
                     <span>일에 지급한다</span>
                 </div>
             </div>
@@ -128,7 +139,16 @@
     </form>
 
     <script>
-        //잔금의 기본값을 해당연도가 대입되게 코드 넣기
+       /*  document.querySelector('input[name="year"]').value = new Date().getFullYear(); */
+
+       let target = document.querySelectorAll('input[name="year"]')
+        target.forEach(element => {
+            element.value = new Date().getFullYear();
+        });
+
+
+
+
     </script>
 </body>
 </html>
