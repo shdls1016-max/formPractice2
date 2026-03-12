@@ -1,12 +1,16 @@
 @charset "UTF-8";
 
+/* 스크롤해서 밑에 보려고 넣음 다 하고 지우기 */
+body{margin-bottom: 100px;}
+
+
 *{padding: 0; margin: 0;}
 li{list-style: none;}
 a{text-decoration: none; color: #333; }
 
-.subtitle{background:rgb(251, 251, 181); font-weight: 600; display: flex; align-items: center; justify-content: center; padding: 10px 0; /* border: 1px solid #000; border-top: 0; */}
+.subtitle{background:rgb(251, 251, 181); font-weight: 600; display: flex; align-items: center; justify-content: center; padding: 10px 0; /* border: 1px solid #000; border-top: 0; */ white-space: nowrap;}
 .subtitle.bt{/* border-top: 1px solid #000; */}
-.innertitle{background: #efefef; display: flex; align-items: center;  justify-content: center;}
+.innertitle{background: #efefef; display: flex; align-items: center;  justify-content: center; white-space: nowrap;}
 
 .pr20{padding-right: 20px; box-sizing: border-box;}
 input{height: 98%; font-size: 18px; border: 0; flex: 1;}
@@ -14,17 +18,19 @@ input.tar{text-align: right;}
 span{white-space: nowrap;}
 
 
+label.mo > span{display: none;}
 
 
-h2{text-align: center; padding: 40px 0 20px; font-size: clamp(18px, 2vw, 40px);}
+
+h2{text-align: center; padding: 40px 0 20px; font-size: clamp(28px, 2vw, 40px);}
 .grid{display: grid; grid-template-columns: 1fr 0.8fr 2fr 0.8fr 0.8fr 1.2fr 0.8fr 1.2fr; grid-template-rows: repeat(13,1fr);  grid-auto-rows:50px; margin:0 clamp(20px,4.8vw,80px); position: relative; z-index: 10; border-left: 1px solid #000; border-top: 1px solid #000;}
 .grid > *{border: 1px solid #000; border-left: 0; border-top: 0;}
 
 .preset{grid-column:1/9; grid-row:1/3; background: rgb(255, 206, 185); padding: 0 10px; display: flex; flex-direction: column; justify-content: center; row-gap: 4px;}
 
 #address{grid-column: 2/9;}
-.land2-1Set{grid-column:5/7;}
-.land2-1Set > input{width: 34%; text-align: right;}
+.land2-1Set{grid-column:5/7; display: flex; justify-content: center; }
+.land2-1Set > input{width: 48%; text-align: right; height: 98%;}
 .land2-1Set > span{margin: 8px;}
 #land3{width: 87%; text-align: right;}
 #building1{grid-column: 3/7;}
@@ -65,25 +71,54 @@ h2{text-align: center; padding: 40px 0 20px; font-size: clamp(18px, 2vw, 40px);}
 .depositSet > div:nth-of-type(2){height: 100%; display: flex; align-items: center;}
 
 @media screen and (max-width:1900px){
-    #land3{width: 79%; text-align: right;}
+    .land3Align{display: flex; width: 98%; justify-content: center; align-items: center;}
+    .building2Align{display: flex; width: 98%; justify-content: center; align-items: center;}
+    .land3Align > input{flex: 1;}
+    .building2Align > input{flex: 1;}
     #building2{width:79%; text-align: right;}
 
 }
 
 @media screen and (max-width:1230px) {
     
-    #land3{width: 70%; text-align: right;}
-    #building2{width:70%; text-align: right;}
-
-    .loanSet{flex-direction: column; align-items: start;}
+   
+    .loanSet{flex-direction: column; align-items: start; justify-content: center;}
     .loanSet > div{padding: 0;}
 
-    .rentalDepositSet{flex-direction: column; align-items: start;}
+    .rentalDepositSet{flex-direction: column; align-items: start; justify-content: center;}
     .rentalDepositSet > div{padding: 0;}
+
+    .date{flex: 1; margin-left: 10px; height: 100%; text-align: right; display: flex; align-items: center;}
+    .date > input{text-align: right; height: 100%; width: auto; width: 40%;}
     
 }
 
 @media screen and (max-width:1030px) {
-    .depositSet{flex-direction: column; align-items: start;}
+    .grid{grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1.2fr 1fr 1.2fr;}
+   
+    .land3Align{display: flex; width: 100%; justify-content: center; align-items: center; padding: 8px;}
+    .building2Align{display: flex; width: 100%; justify-content: center; align-items: center; padding: 8px;}
+    .paywidth4-6{width: 40%;}
+
+    .depositSet{flex-direction: column; align-items: start; justify-content: center;}
     .depositSet .signlabel{margin-left: 0;}
 }
+
+@media screen and (max-width:970px) {
+    label.mo{display: flex; flex-direction: column;}
+    label.mo > span{display: inline-block;}
+
+    .grid{grid-template-columns: 1.2fr 1.4fr 2fr 1.4fr 1.4fr 1.2fr 1.4fr 1.2fr;}
+
+    .building2Align{display: flex; width: 100%; justify-content: center; align-items: center; padding: 8px;}
+
+    .land3Align > span{display: none;}
+    .building2Align > span{display: none;}
+    
+
+
+    #rentalDeposit{width: 60%;}
+}
+/* 1fr 0.8fr 2fr 0.8fr 0.8fr 1.2fr 0.8fr 1.2fr */
+
+/* 패드 미니가 744 */
