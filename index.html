@@ -74,17 +74,24 @@
     
             <label for="loan" class="subtitle">융자금</label>
             <div class="loanSet">
-                <span>금</span>
-                <input type="text" id="loan" name="loan" class="tar">
-                <span>원정(</span>
-                <input type="text" id="bank" name="bank" class="tar">
-                <span>은행)을 승계키로 한다.</span>
+                <div>
+                    <span>금</span>
+                    <input type="text" id="loan" name="loan" class="tar">
+                    <span>원정(</span>
+                    <input type="text" id="bank" name="bank" class="tar">
+                    <span>은행)을</span>
+                </div>
+
+                <span>승계키로 한다.</span>
             </div>
             <label for="rentalDeposit"  class="subtitle bt">임대보증금</label>
             <div class="rentalDepositSet">
-                <span>총</span>
-                <input type="text" id="rentalDeposit" name="rentalDeposit" class="tar">
-                <span>원정을 승계키로 한다.</span>
+                <div>
+                    <span>총</span>
+                    <input type="text" id="rentalDeposit" name="rentalDeposit" class="tar">
+                    <span>원정을</span>
+                </div>
+                <span> 승계키로 한다.</span>
             </div>
     
             <label for="middlePayment1" class="gridRow2 subtitle">중도금</label>
@@ -139,7 +146,6 @@
     </form>
 
     <script>
-       /*  document.querySelector('input[name="year"]').value = new Date().getFullYear(); */
 
        let target = document.querySelectorAll('input[name="year"]')
         target.forEach(element => {

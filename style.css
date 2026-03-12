@@ -4,28 +4,31 @@
 li{list-style: none;}
 a{text-decoration: none; color: #333; }
 
-.subtitle{background:rgb(251, 251, 181); font-weight: 600; display: flex; align-items: center; justify-content: center; padding: 10px 0; border: 1px solid #000; border-top: 0;}
-.subtitle.bt{border-top: 1px solid #000;}
+.subtitle{background:rgb(251, 251, 181); font-weight: 600; display: flex; align-items: center; justify-content: center; padding: 10px 0; /* border: 1px solid #000; border-top: 0; */}
+.subtitle.bt{/* border-top: 1px solid #000; */}
 .innertitle{background: #efefef; display: flex; align-items: center;  justify-content: center;}
 
 .pr20{padding-right: 20px; box-sizing: border-box;}
-input{height: 98%; font-size: 18px;}
+input{height: 98%; font-size: 18px; border: 0; flex: 1;}
 input.tar{text-align: right;}
+span{white-space: nowrap;}
 
 
 
 
 h2{text-align: center; padding: 40px 0 20px; font-size: clamp(18px, 2vw, 40px);}
-.grid{display: grid; grid-template-columns: 1fr 0.8fr 2fr 0.8fr 0.8fr 1.2fr 0.8fr 1.2fr; grid-template-rows: repeat(13,1fr); margin:0 clamp(20px,4.8vw,80px);}
+.grid{display: grid; grid-template-columns: 1fr 0.8fr 2fr 0.8fr 0.8fr 1.2fr 0.8fr 1.2fr; grid-template-rows: repeat(13,1fr);  grid-auto-rows:50px; margin:0 clamp(20px,4.8vw,80px); position: relative; z-index: 10; border-left: 1px solid #000; border-top: 1px solid #000;}
+.grid > *{border: 1px solid #000; border-left: 0; border-top: 0;}
+
 .preset{grid-column:1/9; grid-row:1/3; background: rgb(255, 206, 185); padding: 0 10px; display: flex; flex-direction: column; justify-content: center; row-gap: 4px;}
 
 #address{grid-column: 2/9;}
 .land2-1Set{grid-column:5/7;}
 .land2-1Set > input{width: 34%; text-align: right;}
 .land2-1Set > span{margin: 8px;}
-#land3{width: 60%; text-align: right;}
+#land3{width: 87%; text-align: right;}
 #building1{grid-column: 3/7;}
-#building2{width: 60%; text-align: right;}
+#building2{width:87%; text-align: right;}
 
 
 .contractContents{grid-column: 1/9; grid-row:6/8 ; background: rgb(255, 206, 185); padding: 0 10px; display: flex; flex-direction: column; justify-content: center; row-gap: 4px;}
@@ -35,9 +38,13 @@ h2{text-align: center; padding: 40px 0 20px; font-size: clamp(18px, 2vw, 40px);}
 .depositSet{grid-column: 2/9; display: flex; gap: 4px; padding: 0px 10px; align-items: center; justify-content: space-between;}
 .depositSet .signlabel{margin-left: clamp(20px,4%,60px);}
 .loanSet{grid-column: 2/5; display: flex; padding:0 10px; box-sizing: border-box; gap: 4px; align-items: center;}
-.loanSet > input:first-of-type{width: 50%;}
-.loanSet > input:nth-of-type(2){width:clamp(80px, 20%, 120px); margin: 0;}
-.rentalDepositSet{grid-column: 6/9; display: flex; padding: 0 10px; align-items: center;}
+.loanSet > div{display: flex; box-sizing: border-box; align-items: center;}
+.loanSet > div > input:first-of-type{width: 50%;}
+.loanSet > div > input:nth-of-type(2){width:clamp(80px, 20%, 120px); margin: 0;}
+.rentalDepositSet{grid-column: 6/9; display: flex; padding: 0 10px; align-items: center; box-sizing: border-box;}
+.rentalDepositSet > div{display: flex; padding: 0 10px; align-items: center; box-sizing: border-box;}
+
+.rentalDepositSet > input{flex: 1;}
 
 .gridRow2{grid-row: 11/13; display: flex;}
 .middlePayment1Set{grid-column: 2/9; display: flex; gap: 4px; padding: 0 10px; align-items: center; justify-content: space-between;}
@@ -55,4 +62,28 @@ h2{text-align: center; padding: 40px 0 20px; font-size: clamp(18px, 2vw, 40px);}
 .paywidth1-2 > input{flex:1; height: 98%;}
 .paywidth4-6 > input{flex:1; height: 98%;}
 
-.depositSet > div:nth-of-type(2){height: 100%;}
+.depositSet > div:nth-of-type(2){height: 100%; display: flex; align-items: center;}
+
+@media screen and (max-width:1900px){
+    #land3{width: 79%; text-align: right;}
+    #building2{width:79%; text-align: right;}
+
+}
+
+@media screen and (max-width:1230px) {
+    
+    #land3{width: 70%; text-align: right;}
+    #building2{width:70%; text-align: right;}
+
+    .loanSet{flex-direction: column; align-items: start;}
+    .loanSet > div{padding: 0;}
+
+    .rentalDepositSet{flex-direction: column; align-items: start;}
+    .rentalDepositSet > div{padding: 0;}
+    
+}
+
+@media screen and (max-width:1030px) {
+    .depositSet{flex-direction: column; align-items: start;}
+    .depositSet .signlabel{margin-left: 0;}
+}
